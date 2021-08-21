@@ -1,0 +1,18 @@
+.overview__task--view {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 10fr 2fr;
+}
+
+.overview__task__text {
+	display: inline-flex;
+	align-items: center;
+	padding-left: 10px;
+	
+	word-break: normal;
+	overflow-wrap: anywhere;
+}
+
+.overview__task__text--complete {
+	text-decoration: line-through;
+}

@@ -1,2 +1,4 @@
 # todoApp
-Todo list app built with React JS - initially set up with create-react-app
+Todo list app built with React JS
+
+Initially set up with create-react-app but built using webpack and babel

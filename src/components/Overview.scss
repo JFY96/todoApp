@@ -1,0 +1,70 @@
+.overview {
+	display: grid;
+	row-gap: 0.3em;
+	grid-template-columns: 1fr;
+	width: 500px;
+	justify-items: center;
+	caret-color: transparent;
+}
+
+.overview__task {
+	background-color: white;
+	border-radius: 0.5em;
+	width: 90%;
+	padding: 8px 10px;
+	font-size: 1.2rem;
+}
+
+.overview__task:focus-within {
+	border-color: var(--accent-dark-color);
+}
+
+.overview__task:empty:before { /* so empty span has the same height as one with text */
+	content: "\200b";
+}
+
+.overview__task--edit {
+	display: grid;
+	grid-template-rows: 1fr;
+	grid-template-columns: 9fr 1fr;
+	border: 2px solid transparent;
+}
+
+.overview__task__text-input {
+	border: 0px;
+	font-size: 1.2rem;
+	margin-right: 5px;
+	caret-color: var(--accent-dark-color);
+}
+
+.overview__task__text-input:focus {
+	outline: none;
+}
+
+.overview__task__buttons {
+	display: flex;
+	align-items: center;
+	user-select: none;
+}
+
+.overview__task__buttons--end {
+	justify-content: flex-end;
+}
+
+.overview__task__buttons__button {
+	cursor: pointer;
+	color: var(--light-color);
+	font-size: 1.5em;
+	border: 5px solid transparent;
+	margin-left: 5px;
+}
+
+.overview__task__buttons__button--start {
+	margin-left: 0px;
+}
+
+.overview__task__buttons__button:hover {
+	color: var(--dark-color);
+	background-color: var(--accent-color);
+	border-radius: 1em;
+}
