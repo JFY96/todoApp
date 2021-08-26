@@ -1,10 +1,17 @@
 const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: './src/index.js',
 	output: {
 		filename: 'main.js',
 		path: path.resolve(__dirname, 'dist'),
+	},
+	resolve: {
+		modules: [path.join(__dirname, 'src'), 'node_modules'],
+		alias: {
+		  react: path.join(__dirname, 'node_modules', 'react'),
+		},
 	},
 	module: {
 		rules: [
@@ -31,4 +38,9 @@ module.exports = {
 			},
 		]
 	},
+	plugins: [
+		new HtmlWebPackPlugin({
+		  template: './index.html',
+		}),
+	]
 };
