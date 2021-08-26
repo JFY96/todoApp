@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import uniqid from 'uniqid';
 
+import useStateWithLocalStorage from '../hooks/useStateWithLocalStorage';
 import Task from './Task';
 import TaskCreate from './TaskCreate';
 import TaskEdit from './TaskEdit';
@@ -14,7 +15,7 @@ const getInitialTaskState = () => ({
 
 const Overview = () => {
 	const [taskToCreate, setTaskToCreate] = useState(getInitialTaskState());
-	const [tasks, setTasks] = useState(localStorage.getItem('tasks') ?  JSON.parse(localStorage.getItem('tasks')) : []);
+	const [tasks, setTasks] = useStateWithLocalStorage('tasks');
 	const [editTaskId, setEditTaskId] = useState('');
 
 	const editInputRef = useRef(null);
@@ -22,10 +23,6 @@ const Overview = () => {
 	useEffect(() => {
 		if (editTaskId !== '') editInputRef.current.focus();
 	}, [editTaskId]);
-
-	useEffect(() => {
-		localStorage.setItem('tasks', JSON.stringify(tasks));
-	}, [tasks]);
 
 	const handleCreateTaskChange = (propertyName, val) => {
 		setTaskToCreate(prevTaskToCreate => ({

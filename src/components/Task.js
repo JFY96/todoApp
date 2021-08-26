@@ -12,11 +12,10 @@ const Task = ({
 		<span className="overview__task overview__task--view">
 			<span className="overview__task__buttons">
 				<span 
-					className={(task.complete ? "material-icons" : "material-icons-outlined") 
-						+  " overview__task__buttons__button overview__task__buttons__button--start"}
+					className="material-icons overview__task__buttons__button overview__task__buttons__button--start"
 					onClick={() => { completeTask(task.id) }}
 				>
-					check_box
+					{task.complete ? 'check_box' : 'check_box_outline_blank'}
 				</span>
 			</span>
 			<span 
